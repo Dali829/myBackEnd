@@ -3,7 +3,11 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
+import tpsRoute from "./routes/tp.js";
+import testRoute from "./routes/test.js";
 import coursRoute from "./routes/cours.js"
+import abnmRoute from "./routes/abonnement.js"
+
 import uploadRoute from "./routes/upload.js"
 import reservationRoute from "./routes/reservation.js"
 import cookieParser from "cookie-parser";
@@ -31,10 +35,14 @@ mongoose.connection.on("connected",()=>{
 app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
+app.use("/uploads",express.static("uploads"))
 
 app.use("/api/auth",authRoute);
 app.use("/api/users",usersRoute);
 app.use("/api/cours",coursRoute);
+app.use("/api/tp",tpsRoute);
+app.use("/api/abnm",abnmRoute);
+app.use("/api/test",testRoute);
 app.use("/api/reservation",reservationRoute);
 app.use("/api/upload",uploadRoute);
 
