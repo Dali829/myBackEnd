@@ -4,7 +4,10 @@ const UserSchema = new mongoose.Schema({
     username:{
         type:String ,
         required:true,
-        unique:true
+    },
+    userLastname:{
+        type:String ,
+        required:true,
     },
     email:{
         type:String ,
@@ -12,22 +15,14 @@ const UserSchema = new mongoose.Schema({
         unique:true
 
     },
+    age:{
+        type:Number ,
+        required:true,
+
+    },
     password:{
         type:[String] ,
         
-    },
-    image:{
-        type:String,
-        default:""
-    },
-    wallet:{
-        type:Number ,
-        default:0
-        
-    },
-    isAdmin:{
-        type:Boolean,
-        default:false
     },
     Role:{
         type:String ,
