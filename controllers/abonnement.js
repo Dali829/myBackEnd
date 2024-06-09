@@ -23,7 +23,7 @@ export const updateAbnm = async (req,res,next)=>{
 }
 export const getAbnm = async (req,res,next)=>{
     try{
-        const Abnm = await abnm.findById(req.params.id)
+        const Abnm = await abnm.findById(req.params.id).populate("idCours")
         res.status(200).json(Abnm)
         }
     catch(err){

@@ -7,7 +7,7 @@ import tpsRoute from "./routes/tp.js";
 import testRoute from "./routes/test.js";
 import coursRoute from "./routes/cours.js"
 import abnmRoute from "./routes/abonnement.js"
-
+import QuestionRoute from "./routes/question.js"
 import uploadRoute from "./routes/upload.js"
 import reservationRoute from "./routes/reservation.js"
 import cookieParser from "cookie-parser";
@@ -42,6 +42,7 @@ app.use("/api/users",usersRoute);
 app.use("/api/cours",coursRoute);
 app.use("/api/tp",tpsRoute);
 app.use("/api/abnm",abnmRoute);
+app.use("/api/question",QuestionRoute);
 app.use("/api/test",testRoute);
 app.use("/api/reservation",reservationRoute);
 app.use("/api/upload",uploadRoute);

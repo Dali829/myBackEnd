@@ -23,7 +23,7 @@ export const updateTp = async (req,res,next)=>{
 }
 export const getTPs = async (req,res,next)=>{
     try{
-        const tpss = await tps.findById(req.params.id)
+        const tpss = await tps.findById(req.params.id).populate("idCours")
         res.status(200).json(tpss)
         }
     catch(err){

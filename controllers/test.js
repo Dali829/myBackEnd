@@ -23,7 +23,7 @@ export const updateTest = async (req,res,next)=>{
 }
 export const getTest = async (req,res,next)=>{
     try{
-        const Test = await test.findById(req.params.id)
+        const Test = await test.findById(req.params.id).populate("idCours")
         res.status(200).json(Test)
         }
     catch(err){

@@ -11,6 +11,8 @@ export const registre = async(req,res,next)=>{
             username:req.body.username,
             email:req.body.email,
             password:hash,
+            userLastname:req.body.userLastname,
+            age:req.body.age
         })
         await newUser.save()
         res.status(200).send("User has been created")
