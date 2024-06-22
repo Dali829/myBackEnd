@@ -1,4 +1,5 @@
 import cours from "../models/cours.js";
+import User from "../models/User.js";
 
 export const createCours = async (req,res,next)=>{
     const newCours = new cours(req.body)
@@ -41,10 +42,30 @@ export const deleteCours = async (req,res,next)=>{
     }
 
 }
+
+
 export const getAllCours = async (req,res,next)=>{
     const failed = true;
     try{
     const desCours = await cours.find()
+    res.status(200).json(desCours)
+    }
+    catch(err){
+        next(err);
+    }
+
+}
+
+
+export const getAllCoursAP = async (req,res,next)=>{
+    
+    const failed = true;
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+
+    const courseIds = user.listCours;
+    try{
+    const desCours = await cours.find({ _id: { $in: courseIds } })
     res.status(200).json(desCours)
     }
     catch(err){

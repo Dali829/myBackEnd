@@ -1,4 +1,6 @@
 import test from "../models/test.js";
+import User from "../models/User.js";
+
 
 export const createTest = async (req,res,next)=>{
     const newTest = new test(req.body)
@@ -45,6 +47,22 @@ export const getAllTest = async (req,res,next)=>{
     const failed = true;
     try{
     const tests = await test.find().populate("idCours")
+    res.status(200).json(tests)
+    }
+    catch(err){
+        next(err);
+    }
+
+}
+
+export const getAllTestAp = async (req,res,next)=>{
+    const failed = true;
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+
+    const courseIds = user.listCours;
+    try{
+    const tests = await test.find({ idCours: { $in: courseIds } }).populate("idCours")
     res.status(200).json(tests)
     }
     catch(err){

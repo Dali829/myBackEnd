@@ -26,8 +26,13 @@ const UserSchema = new mongoose.Schema({
     },
     Role:{
         type:String ,
-        default:"user"
+        default:"Apprenant"
     }
+    ,
+    listCours:{
+        type:[String] ,
+        
+    },
 },{timestamps:true});
 export default mongoose.model("User",UserSchema)
 

@@ -1,8 +1,10 @@
 import express  from "express";
 
-import { createTest, deleteTest, getAllTest, getTest, updateTest } from "../controllers/test.js";
+import { createTest, deleteTest, getAllTest, getAllTestAp, getTest, updateTest } from "../controllers/test.js";
 
 const router = express.Router();
+router.get("/apprenat/:id",getAllTestAp);
+
 
 router.post("/"/*,verifyAdmin*/,createTest);
 

@@ -1,8 +1,11 @@
 import express  from "express";
 
-import { createTp, deleteTp, getAllTps, getTPs, updateTp } from "../controllers/tp.js";
+import { createTp, deleteTp, getAllTps, getAllTpsAp, getTPs, updateTp } from "../controllers/tp.js";
 
 const router = express.Router();
+
+router.get("/apprenat/:id",getAllTpsAp);
+
 
 router.post("/"/*,verifyAdmin*/,createTp);
 

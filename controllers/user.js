@@ -42,3 +42,28 @@ export const getAllUser = async (req,res,next)=>{
     }
 
 }
+/*
+export const addCourseToUser = async (userId, course) => {
+    try {
+        await User.updateOne(
+            { _id: userId },
+            { $push: { listCours: course } }
+        );
+        res.status(200).json("added")
+
+    } catch (err) {
+        console.error('Error adding course:', err);
+    }
+};*/
+
+
+export const addCourseToUser = async (req,res,next)=>{
+    try{
+        const updateAbnm = await User.findByIdAndUpdate(req.params.id, { $push: { listCours: req.body.course } },{new:true})
+        res.status(200).json(updateAbnm)
+        }
+    catch(err){
+        next(err);
+    }
+
+}
