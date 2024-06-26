@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import tpsRoute from "./routes/tp.js";
+import tpsNoteRoute from "./routes/tpNote.js";
 import testRoute from "./routes/test.js";
 import coursRoute from "./routes/cours.js"
 import abnmRoute from "./routes/abonnement.js"
@@ -41,6 +42,7 @@ app.use("/api/auth",authRoute);
 app.use("/api/users",usersRoute);
 app.use("/api/cours",coursRoute);
 app.use("/api/tp",tpsRoute);
+app.use("/api/tpNote",tpsNoteRoute);
 app.use("/api/abnm",abnmRoute);
 app.use("/api/question",QuestionRoute);
 app.use("/api/test",testRoute);
